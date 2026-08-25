@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "ephemeris",
+  "version": "1.0.0.0",
+  "description": "Add a tab-index prefix & a bracketed-hostname suffix to every page title.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ephemeris@sleepanarchy.com",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}

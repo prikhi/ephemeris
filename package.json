@@ -1,0 +1,28 @@
+{
+  "name": "ephemeris",
+  "version": "1.0.0",
+  "description": "Add a tab-index prefix & a bracketed-hostname suffix to every page title.",
+  "private": true,
+  "license": "BSD-3-Clause",
+  "author": "Pavan Rikhi <pavan.rikhi@gmail.com>",
+  "scripts": {
+    "start": "web-ext run",
+    "lint": "web-ext lint",
+    "build": "web-ext build",
+    "sign": "web-ext sign --channel=unlisted",
+    "verify": "python3 harness/verify.py"
+  },
+  "webExt": {
+    "ignoreFiles": [
+      "package.json",
+      "package-lock.json",
+      "node_modules",
+      "harness",
+      "README.md",
+      "CHANGELOG.md"
+    ]
+  },
+  "devDependencies": {
+    "web-ext": "^8.10.0"
+  }
+}
