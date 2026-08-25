@@ -1,0 +1,57 @@
+# yamllint disable rule:line-length
+
+name: CI Build
+
+# yamllint disable-line rule:truthy
+on:
+  # Run on Push
+  push:
+  # Allow Running Manually
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx web-ext lint
+      - run: npx --yes markdownlint-cli2 '**/*.md' '#node_modules'
+      - run: pipx run yamllint .github/workflows/
+
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+      # The runner's snap Firefox cannot read profiles under /tmp;
+      # install a plain binary instead.
+      - uses: browser-actions/setup-firefox@v1
+        id: firefox
+      - run: npm ci --ignore-scripts
+      - run: python3 harness/verify.py --firefox '${{ steps.firefox.outputs.firefox-path }}'
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx web-ext build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ephemeris-unsigned
+          path: web-ext-artifacts/*.zip

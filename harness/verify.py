@@ -283,6 +283,11 @@ def main():
         metavar="DIR",
         help="RED mode: sideload legacy *.xpi from DIR instead of ephemeris",
     )
+    parser.add_argument(
+        "--firefox",
+        metavar="BINARY",
+        help="Firefox binary to launch (default: web-ext discovery / PATH)",
+    )
     args = parser.parse_args()
 
     server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
@@ -296,7 +301,8 @@ def main():
         if args.old:
             profile = tmp / "profile"
             build_old_profile(args.old, profile)
-            cmd = ["firefox", "-no-remote", "-profile", str(profile), url]
+            binary = args.firefox or "firefox"
+            cmd = [binary, "-no-remote", "-profile", str(profile), url]
             if not args.headed:
                 cmd.insert(1, "-headless")
         else:
@@ -311,6 +317,8 @@ def main():
                 "--pref=browser.tabs.insertRelatedAfterCurrent=false",
                 "--pref=dom.disable_open_during_load=false",
             ]
+            if args.firefox:
+                cmd.append("--firefox=%s" % args.firefox)
             if not args.headed:
                 cmd.append("--arg=-headless")
         browser_log = open(tmp / "browser.log", "w")

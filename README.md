@@ -1,5 +1,8 @@
 # ephemeris
 
+[![ephemeris Build Status](https://github.com/prikhi/ephemeris/actions/workflows/main.yml/badge.svg)](https://github.com/prikhi/ephemeris/actions/workflows/main.yml)
+
+
 Number Your Tabs & Name Your Hosts, Without The Fight.
 
 A Firefox WebExtension that composes every page title into
