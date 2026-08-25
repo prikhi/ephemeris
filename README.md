@@ -95,6 +95,11 @@ about:addons (gear menu, Install Add-on From File). For a temporary
 dev install use `npm start` or about:debugging (This Firefox, Load
 Temporary Add-on).
 
+NOTE: CI uploads an `ephemeris-unsigned` artifact (the same zip `npm
+run build` produces). Release & beta Firefox refuse unsigned installs,
+so it only serves temporary loads, manual dev-hub uploads, & build
+provenance - permanent installs need the signed XPI above.
+
 
 ## LICENSE
 
