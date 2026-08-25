@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Observer</title>
+<script src="recorder.js"></script>
+</head>
+<body>
+<h1>ephemeris harness observer</h1>
+<p>Never writes its own title after load; exists to sit behind
+closable tabs & record exactly one extension write per index shift.</p>
+<script>
+(() => {
+  "use strict";
+  const post = () =>
+    fetch("/report", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        role: "observer",
+        title: document.title,
+        log: window.__titleRecorder.log,
+      }),
+    }).catch(() => {});
+  setInterval(post, 500);
+  post();
+})();
+</script>
+</body>
+</html>
