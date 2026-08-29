@@ -82,17 +82,20 @@ their Xray sandbox) surface via mutation records.
 
 ## Install
 
-The finish line is a signed unlisted XPI installed permanently in
-release Firefox:
+Install it from [addons.mozilla.org][amo].
+
+[amo]: https://addons.mozilla.org/firefox/addon/ephemeris/
+
+Releases are signed & published from this repo, with the public
+listing's metadata riding `amo-metadata.json`:
 
 ```sh
 WEB_EXT_API_KEY=... WEB_EXT_API_SECRET=... npm run sign
 ```
 
-Credentials come from <https://addons.mozilla.org/developers/addon/api/key/>.
-The signed XPI lands in `web-ext-artifacts/`; install it via
-about:addons (gear menu, Install Add-on From File). For a temporary
-dev install use `npm start` or about:debugging (This Firefox, Load
+Credentials come from <https://addons.mozilla.org/developers/addon/api/key/>;
+the signed XPI also lands in `web-ext-artifacts/`. For a temporary dev
+install use `npm start` or about:debugging (This Firefox, Load
 Temporary Add-on).
 
 NOTE: CI uploads an `ephemeris-unsigned` artifact (the same zip `npm

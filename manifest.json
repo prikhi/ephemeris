@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ephemeris",
-  "version": "1.0.0.0",
+  "version": "1.0.0.1",
   "description": "Add a tab-index prefix & a bracketed-hostname suffix to every page title.",
   "browser_specific_settings": {
     "gecko": {
