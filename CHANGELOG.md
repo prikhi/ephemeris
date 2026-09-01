@@ -3,6 +3,8 @@
 
 ## master
 
+* Add an orrery icon, shown in the browser UI & on the AMO listing.
+
 
 ## v1.0.0.1
 

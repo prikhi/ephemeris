@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ephemeris icon: a top-down orrery - a sun & two planets at their
+     orbital positions, an ephemeris being a table of exactly those.
+     Source of the rasterized ephemeris-{48,96,128}.png beside it. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect x="0" y="0" width="128" height="128" rx="28" fill="#141a3a"/>
+  <circle cx="64" cy="64" r="26" fill="none" stroke="#4d5880" stroke-width="4.5"/>
+  <circle cx="64" cy="64" r="44" fill="none" stroke="#4d5880" stroke-width="4.5"/>
+  <circle cx="64" cy="64" r="11" fill="#f5a623"/>
+  <circle cx="82.4" cy="45.6" r="7" fill="#e9edf8"/>
+  <circle cx="25.9" cy="86" r="8.5" fill="#8fd0ff"/>
+</svg>

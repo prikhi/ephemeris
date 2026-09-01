@@ -21,7 +21,8 @@
       "harness",
       "README.md",
       "CHANGELOG.md",
-      "amo-metadata.json"
+      "amo-metadata.json",
+      "icons/ephemeris.svg"
     ]
   },
   "devDependencies": {

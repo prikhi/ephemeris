@@ -3,6 +3,11 @@
   "name": "ephemeris",
   "version": "1.0.0.1",
   "description": "Add a tab-index prefix & a bracketed-hostname suffix to every page title.",
+  "icons": {
+    "48": "icons/ephemeris-48.png",
+    "96": "icons/ephemeris-96.png",
+    "128": "icons/ephemeris-128.png"
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "ephemeris@sleepanarchy.com",
